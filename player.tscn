@@ -115,25 +115,7 @@ tracks/0/keys = {
 
 [sub_resource type="Animation" id="Animation_85mp4"]
 resource_name = "walk_left"
-length = 0.5
-loop_mode = 1
-step = 0.07
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath(".:frame")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.07, 0.14, 0.21, 0.28),
-"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
-"update": 1,
-"values": [35, 34, 33, 32, 31]
-}
-
-[sub_resource type="Animation" id="Animation_rcibf"]
-resource_name = "walk_right"
-length = 0.5
+length = 0.4
 loop_mode = 1
 step = 0.06
 tracks/0/type = "value"
@@ -146,7 +128,25 @@ tracks/0/keys = {
 "times": PackedFloat32Array(0, 0.06, 0.12, 0.18, 0.24),
 "transitions": PackedFloat32Array(1, 1, 1, 1, 1),
 "update": 1,
-"values": [36, 37, 38, 39, 40]
+"values": [35, 34, 33, 32, 31]
+}
+
+[sub_resource type="Animation" id="Animation_rcibf"]
+resource_name = "walk_right"
+length = 0.4
+loop_mode = 1
+step = 0.06
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.06, 0.12, 0.18),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 1,
+"values": [36, 37, 38, 39]
 }
 
 [sub_resource type="Animation" id="Animation_6lvku"]
@@ -223,7 +223,7 @@ blend_point_1/pos = Vector2(1, 0)
 blend_point_2/node = SubResource("AnimationNodeAnimation_4yl81")
 blend_point_2/pos = Vector2(0, 1)
 blend_point_3/node = SubResource("AnimationNodeAnimation_770ye")
-blend_point_3/pos = Vector2(0, -0.9)
+blend_point_3/pos = Vector2(0, -1)
 blend_mode = 1
 
 [sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_kq2hb"]
@@ -255,10 +255,12 @@ position = Vector2(0, -2.5)
 shape = SubResource("RectangleShape2D_dw0xm")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-position = Vector2(0, -10)
+position = Vector2(0, -9)
 texture = ExtResource("2_owxkn")
 hframes = 6
 vframes = 8
+region_enabled = true
+region_rect = Rect2(0, 1, 192, 255)
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 root_node = NodePath("../Sprite2D")
@@ -270,5 +272,5 @@ libraries = {
 root_node = NodePath("../Sprite2D")
 tree_root = SubResource("AnimationNodeStateMachine_5nra1")
 anim_player = NodePath("../AnimationPlayer")
-parameters/idle/blend_position = Vector2(0.1216, 0.0748899)
-parameters/walk/blend_position = Vector2(0.00160003, 0.118943)
+parameters/idle/blend_position = Vector2(0.00160003, 0.015873)
+parameters/walk/blend_position = Vector2(-0.00319999, -0.89418)
